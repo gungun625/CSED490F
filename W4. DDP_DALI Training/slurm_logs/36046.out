@@ -1,0 +1,124 @@
+SLURM_SUBMIT_DIR=/home/gungun625/CSED490F_DDP_DALI_Training
+CUDA_HOME=/opt/ohpc/pub/apps/cuda-11.2
+CUDA_VISIBLE_DEVICES=0,1
+CUDA_VERSION=11.2
+0: n6
+0: /home/gungun625/CSED490F_DDP_DALI_Training
+0: Thu Oct  2 03:10:25 KST 2025
+gungun625_CSED490F_DDP_DALI_Training_container
+week4: Pulling from 25fallcsed490f/cluster
+Digest: sha256:26ce44420c5de1cce8fe2e192bcf0329e6708d6dddb23d229bc2d0ab55802b97
+Status: Image is up to date for 25fallcsed490f/cluster:week4
+docker.io/25fallcsed490f/cluster:week4
+[System] UUID GPU List
+[System] create docker container...
+c3078413f3b12e4952229133b318c98011ab7d23c5aac8daa16f45534f604d8e
+[System] docker container created
+[System] initialize docker container...
+Requirement already satisfied: numpy<2 in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 1)) (1.26.4)
+Requirement already satisfied: nvidia-dali-cuda120 in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 2)) (1.51.2)
+Requirement already satisfied: pynvml in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 3)) (13.0.1)
+Requirement already satisfied: pandas in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 4)) (2.3.2)
+Requirement already satisfied: matplotlib in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 5)) (3.10.6)
+Requirement already satisfied: nvtx in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 6)) (0.2.13)
+Requirement already satisfied: astunparse<=1.6.3,>=1.6.0 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (1.6.3)
+Requirement already satisfied: gast<=0.6.0,>=0.3.3 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.6.0)
+Requirement already satisfied: six<=1.17,>=1.16 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (1.16.0)
+Requirement already satisfied: packaging<=25.0 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (24.1)
+Requirement already satisfied: nvidia-nvimgcodec-cu12<0.7.0,>=0.6.0 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.6.0.32)
+Requirement already satisfied: nvidia-nvcomp-cu12==5.0.0.6 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (5.0.0.6)
+Requirement already satisfied: dm-tree<=0.1.9 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.1.9)
+Requirement already satisfied: nvidia-ml-py>=12.0.0 in /opt/conda/lib/python3.11/site-packages (from pynvml->-r requirements.txt (line 3)) (13.580.82)
+Requirement already satisfied: python-dateutil>=2.8.2 in /opt/conda/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 4)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /opt/conda/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 4)) (2024.1)
+Requirement already satisfied: tzdata>=2022.7 in /opt/conda/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 4)) (2025.2)
+Requirement already satisfied: contourpy>=1.0.1 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (4.60.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (1.4.9)
+Requirement already satisfied: pillow>=8 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (10.2.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (3.2.5)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /opt/conda/lib/python3.11/site-packages (from astunparse<=1.6.3,>=1.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.44.0)
+Requirement already satisfied: absl-py>=0.6.1 in /opt/conda/lib/python3.11/site-packages (from dm-tree<=0.1.9->nvidia-dali-cuda120->-r requirements.txt (line 2)) (2.3.1)
+Requirement already satisfied: attrs>=18.2.0 in /opt/conda/lib/python3.11/site-packages (from dm-tree<=0.1.9->nvidia-dali-cuda120->-r requirements.txt (line 2)) (24.2.0)
+Requirement already satisfied: wrapt>=1.11.2 in /opt/conda/lib/python3.11/site-packages (from dm-tree<=0.1.9->nvidia-dali-cuda120->-r requirements.txt (line 2)) (1.17.3)
+Requirement already satisfied: nvidia-nvjpeg-cu12 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (12.4.0.76)
+Requirement already satisfied: nvidia-nvjpeg2k-cu12 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.9.0.43)
+Requirement already satisfied: nvidia-nvtiff-cu12 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.5.1.75)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[System] initialize docker container finished
+[System] run train_cifar.py with 'run_ddp_dali.sh'...
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/HOME/handler/DDP/train.py:109: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(sync_path, map_location=map_location)
+sibal
+try Initialize group
+success Initialize group
+==> Prepare data..
+==> Prepare model..
+==> Sync model parameters
+==> Start training..
+Epoch: [0][50/98]	Time 0.225 (0.235)	Data 0.001 (0.001)	Loss 1.9912 (2.2914)	Prec@1 26.758 (19.785)	Prec@5 74.414 (67.660)
+Epoch 0 : Loss 2.1239 Prec@1 22.937 Prec@5 71.757
+Loss 2.2819 Prec@1 25.156 Prec@5 78.252
+Collecting data...
+Generating '/tmp/nsys-report-4b67.qdstrm'
+[1/1] [0%                          ] gpu_1.nsys-rep[1/1] [0%                          ] gpu_1.nsys-rep[1/1] [5%                          ] gpu_1.nsys-rep[1/1] [6%                          ] gpu_1.nsys-rep[1/1] [7%                          ] gpu_1.nsys-rep[1/1] [8%                          ] gpu_1.nsys-rep[1/1] [9%                          ] gpu_1.nsys-rep[1/1] [10%                         ] gpu_1.nsys-rep[1/1] [11%                         ] gpu_1.nsys-rep[1/1] [12%                         ] gpu_1.nsys-rep[1/1] [13%                         ] gpu_1.nsys-rep[1/1] [14%                         ] gpu_1.nsys-rep[1/1] [=15%                        ] gpu_1.nsys-rep[1/1] [=16%                        ] gpu_1.nsys-rep[1/1] [=17%                        ] gpu_1.nsys-rep[1/1] [==18%                       ] gpu_1.nsys-rep[1/1] [==19%                       ] gpu_1.nsys-rep[1/1] [==20%                       ] gpu_1.nsys-rep[1/1] [==21%                       ] gpu_1.nsys-rep[1/1] [===22%                      ] gpu_1.nsys-rep[1/1] [===23%                      ] gpu_1.nsys-rep[1/1] [===24%                      ] gpu_1.nsys-rep[1/1] [====25%                     ] gpu_1.nsys-rep[1/1] [====26%                     ] gpu_1.nsys-rep[1/1] [====28%                     ] gpu_1.nsys-rep[1/1] [=====29%                    ] gpu_1.nsys-rep[1/1] [=====30%                    ] gpu_1.nsys-rep[1/1] [=====31%                    ] gpu_1.nsys-rep[1/1] [======33%                   ] gpu_1.nsys-rep[1/1] [======34%                   ] gpu_1.nsys-rep[1/1] [======35%                   ] gpu_1.nsys-rep[1/1] [=======36%                  ] gpu_1.nsys-rep[1/1] [=======38%                  ] gpu_1.nsys-rep[1/1] [=======39%                  ] gpu_1.nsys-rep[1/1] [========40%                 ] gpu_1.nsys-rep[1/1] [========41%                 ] gpu_1.nsys-rep[1/1] [=========43%                ] gpu_1.nsys-rep[1/1] [=========44%                ] gpu_1.nsys-rep[1/1] [=========45%                ] gpu_1.nsys-rep[1/1] [=========46%                ] gpu_1.nsys-rep[1/1] [==========48%               ] gpu_1.nsys-rep[1/1] [==========49%               ] gpu_1.nsys-rep[1/1] [===========50%              ] gpu_1.nsys-rep[1/1] [===========51%              ] gpu_1.nsys-rep[1/1] [===========53%              ] gpu_1.nsys-rep[1/1] [============54%             ] gpu_1.nsys-rep[1/1] [============55%             ] gpu_1.nsys-rep[1/1] [============56%             ] gpu_1.nsys-rep[1/1] [=============58%            ] gpu_1.nsys-rep[1/1] [=============59%            ] gpu_1.nsys-rep[1/1] [=============60%            ] gpu_1.nsys-rep[1/1] [==============61%           ] gpu_1.nsys-rep[1/1] [==============63%           ] gpu_1.nsys-rep[1/1] [===============67%          ] gpu_1.nsys-rep[1/1] [========================100%] gpu_1.nsys-rep[1/1] [========================100%] gpu_1.nsys-rep
+Generated:
+	/HOME/nsight_logs/ddp_dali_20251001_181029/gpu_1.nsys-rep
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/HOME/handler/DDP/train.py:109: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(sync_path, map_location=map_location)
+/HOME/handler/DDP/train.py:109: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state = torch.load(sync_path, map_location=map_location)
+sibal
+try Initialize group
+success Initialize group
+==> Prepare data..
+==> Prepare model..
+==> Sync model parameters
+==> Start training..
+sibal
+try Initialize group
+success Initialize group
+==> Prepare data..
+==> Prepare model..
+==> Sync model parameters
+==> Start training..
+Epoch 0 : Loss 2.1312 Prec@1 22.415 Prec@5 70.912
+Loss 1.7948 Prec@1 34.238 Prec@5 86.074
+Collecting data...
+Generating '/tmp/nsys-report-4902.qdstrm'
+[1/1] [0%                          ] gpu_2.nsys-rep[1/1] [0%                          ] gpu_2.nsys-rep[1/1] [0%                          ] gpu_2.nsys-rep[1/1] [5%                          ] gpu_2.nsys-rep[1/1] [6%                          ] gpu_2.nsys-rep[1/1] [7%                          ] gpu_2.nsys-rep[1/1] [8%                          ] gpu_2.nsys-rep[1/1] [9%                          ] gpu_2.nsys-rep[1/1] [10%                         ] gpu_2.nsys-rep[1/1] [11%                         ] gpu_2.nsys-rep[1/1] [12%                         ] gpu_2.nsys-rep[1/1] [13%                         ] gpu_2.nsys-rep[1/1] [14%                         ] gpu_2.nsys-rep[1/1] [=15%                        ] gpu_2.nsys-rep[1/1] [=16%                        ] gpu_2.nsys-rep[1/1] [=17%                        ] gpu_2.nsys-rep[1/1] [==18%                       ] gpu_2.nsys-rep[1/1] [==19%                       ] gpu_2.nsys-rep[1/1] [==20%                       ] gpu_2.nsys-rep[1/1] [==21%                       ] gpu_2.nsys-rep[1/1] [===22%                      ] gpu_2.nsys-rep[1/1] [===23%                      ] gpu_2.nsys-rep[1/1] [===24%                      ] gpu_2.nsys-rep[1/1] [====26%                     ] gpu_2.nsys-rep[1/1] [====27%                     ] gpu_2.nsys-rep[1/1] [====28%                     ] gpu_2.nsys-rep[1/1] [=====29%                    ] gpu_2.nsys-rep[1/1] [=====31%                    ] gpu_2.nsys-rep[1/1] [=====32%                    ] gpu_2.nsys-rep[1/1] [======33%                   ] gpu_2.nsys-rep[1/1] [======34%                   ] gpu_2.nsys-rep[1/1] [=======36%                  ] gpu_2.nsys-rep[1/1] [=======37%                  ] gpu_2.nsys-rep[1/1] [=======38%                  ] gpu_2.nsys-rep[1/1] [=======39%                  ] gpu_2.nsys-rep[1/1] [========40%                 ] gpu_2.nsys-rep[1/1] [========42%                 ] gpu_2.nsys-rep[1/1] [=========43%                ] gpu_2.nsys-rep[1/1] [=========44%                ] gpu_2.nsys-rep[1/1] [=========45%                ] gpu_2.nsys-rep[1/1] [==========47%               ] gpu_2.nsys-rep[1/1] [==========48%               ] gpu_2.nsys-rep[1/1] [==========49%               ] gpu_2.nsys-rep[1/1] [===========51%              ] gpu_2.nsys-rep[1/1] [===========52%              ] gpu_2.nsys-rep[1/1] [===========53%              ] gpu_2.nsys-rep[1/1] [============54%             ] gpu_2.nsys-rep[1/1] [============56%             ] gpu_2.nsys-rep[1/1] [============57%             ] gpu_2.nsys-rep[1/1] [=============58%            ] gpu_2.nsys-rep[1/1] [=============59%            ] gpu_2.nsys-rep[1/1] [=============60%            ] gpu_2.nsys-rep[1/1] [==============62%           ] gpu_2.nsys-rep[1/1] [==============63%           ] gpu_2.nsys-rep[1/1] [==============64%           ] gpu_2.nsys-rep[1/1] [================68%         ] gpu_2.nsys-rep[1/1] [========================100%] gpu_2.nsys-rep[1/1] [========================100%] gpu_2.nsys-rep
+Generated:
+	/HOME/nsight_logs/ddp_dali_20251001_181029/gpu_2.nsys-rep
+[System] train ended
+gungun625_CSED490F_DDP_DALI_Training_container
+gungun625_CSED490F_DDP_DALI_Training_container
+Thu Oct  2 03:12:13 KST 2025
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+             36046   titanxp CSED490F gungun62  R       1:49      1 n6
+##### END #####
+Error response from daemon: No such container: gungun625_CSED490F_DDP_DALI_Training_container
+Error response from daemon: No such container: gungun625_CSED490F_DDP_DALI_Training_container
+Error response from daemon: No such container: gungun625_CSED490F_DDP_DALI_Training_container

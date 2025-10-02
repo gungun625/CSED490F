@@ -1,0 +1,101 @@
+SLURM_SUBMIT_DIR=/home/gungun625/CSED490F_DDP_DALI_Training
+CUDA_HOME=/opt/ohpc/pub/apps/cuda-11.2
+CUDA_VISIBLE_DEVICES=0,1
+CUDA_VERSION=11.2
+0: n6
+0: /home/gungun625/CSED490F_DDP_DALI_Training
+0: Wed Oct  1 20:22:13 KST 2025
+gungun625_CSED490F_DDP_DALI_Training_container
+week4: Pulling from 25fallcsed490f/cluster
+Digest: sha256:26ce44420c5de1cce8fe2e192bcf0329e6708d6dddb23d229bc2d0ab55802b97
+Status: Image is up to date for 25fallcsed490f/cluster:week4
+docker.io/25fallcsed490f/cluster:week4
+[System] UUID GPU List
+[System] create docker container...
+9ccd31b4d5633f79cb3d734b66751644184863ce72b3079937d8947ebbdf2f00
+[System] docker container created
+[System] initialize docker container...
+Requirement already satisfied: numpy<2 in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 1)) (1.26.4)
+Requirement already satisfied: nvidia-dali-cuda120 in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 2)) (1.51.2)
+Requirement already satisfied: pynvml in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 3)) (13.0.1)
+Requirement already satisfied: pandas in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 4)) (2.3.2)
+Requirement already satisfied: matplotlib in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 5)) (3.10.6)
+Requirement already satisfied: nvtx in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 6)) (0.2.13)
+Requirement already satisfied: astunparse<=1.6.3,>=1.6.0 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (1.6.3)
+Requirement already satisfied: gast<=0.6.0,>=0.3.3 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.6.0)
+Requirement already satisfied: six<=1.17,>=1.16 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (1.16.0)
+Requirement already satisfied: packaging<=25.0 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (24.1)
+Requirement already satisfied: nvidia-nvimgcodec-cu12<0.7.0,>=0.6.0 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.6.0.32)
+Requirement already satisfied: nvidia-nvcomp-cu12==5.0.0.6 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (5.0.0.6)
+Requirement already satisfied: dm-tree<=0.1.9 in /opt/conda/lib/python3.11/site-packages (from nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.1.9)
+Requirement already satisfied: nvidia-ml-py>=12.0.0 in /opt/conda/lib/python3.11/site-packages (from pynvml->-r requirements.txt (line 3)) (13.580.82)
+Requirement already satisfied: python-dateutil>=2.8.2 in /opt/conda/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 4)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /opt/conda/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 4)) (2024.1)
+Requirement already satisfied: tzdata>=2022.7 in /opt/conda/lib/python3.11/site-packages (from pandas->-r requirements.txt (line 4)) (2025.2)
+Requirement already satisfied: contourpy>=1.0.1 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (4.60.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (1.4.9)
+Requirement already satisfied: pillow>=8 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (10.2.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /opt/conda/lib/python3.11/site-packages (from matplotlib->-r requirements.txt (line 5)) (3.2.5)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /opt/conda/lib/python3.11/site-packages (from astunparse<=1.6.3,>=1.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.44.0)
+Requirement already satisfied: absl-py>=0.6.1 in /opt/conda/lib/python3.11/site-packages (from dm-tree<=0.1.9->nvidia-dali-cuda120->-r requirements.txt (line 2)) (2.3.1)
+Requirement already satisfied: attrs>=18.2.0 in /opt/conda/lib/python3.11/site-packages (from dm-tree<=0.1.9->nvidia-dali-cuda120->-r requirements.txt (line 2)) (24.2.0)
+Requirement already satisfied: wrapt>=1.11.2 in /opt/conda/lib/python3.11/site-packages (from dm-tree<=0.1.9->nvidia-dali-cuda120->-r requirements.txt (line 2)) (1.17.3)
+Requirement already satisfied: nvidia-nvjpeg-cu12 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (12.4.0.76)
+Requirement already satisfied: nvidia-nvjpeg2k-cu12 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.9.0.43)
+Requirement already satisfied: nvidia-nvtiff-cu12 in /opt/conda/lib/python3.11/site-packages (from nvidia-nvimgcodec-cu12[all]<0.7.0,>=0.6.0->nvidia-dali-cuda120->-r requirements.txt (line 2)) (0.5.1.75)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[System] initialize docker container finished
+[System] run train_cifar.py with 'run_dp.sh'...
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+==> Prepare data..
+==> Prepare model..
+==> Start training..
+Epoch: [0][50/98]	Time 0.408 (0.459)	Data 0.188 (0.191)	Loss 0.0031 (0.0040)	Prec@1 41.602 (30.137)	Prec@5 90.039 (79.934)
+Epoch 0 : Loss 0.0035 Prec@1 37.800 Prec@5 85.826
+Loss 0.0026 Prec@1 53.310 Prec@5 94.120
+Collecting data...
+Generating '/tmp/nsys-report-f1a1.qdstrm'
+[1/1] [0%                          ] gpu_1.nsys-rep[1/1] [0%                          ] gpu_1.nsys-rep[1/1] [8%                          ] gpu_1.nsys-rep[1/1] [=15%                        ] gpu_1.nsys-rep[1/1] [===22%                      ] gpu_1.nsys-rep[1/1] [=====29%                    ] gpu_1.nsys-rep[1/1] [=======36%                  ] gpu_1.nsys-rep[1/1] [=========43%                ] gpu_1.nsys-rep[1/1] [===========50%              ] gpu_1.nsys-rep[1/1] [============57%             ] gpu_1.nsys-rep[1/1] [==============64%           ] gpu_1.nsys-rep[1/1] [================71%         ] gpu_1.nsys-rep[1/1] [=================74%        ] gpu_1.nsys-rep[1/1] [========================100%] gpu_1.nsys-rep[1/1] [========================100%] gpu_1.nsys-rep
+Generated:
+	/HOME/nsight_logs/dp_20251001_112217/gpu_1.nsys-rep
+WARNING: CPU IP/backtrace sampling not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+WARNING: CPU context switch tracing not supported, disabling.
+Try the 'nsys status --environment' command to learn more.
+
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:58: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+==> Prepare data..
+==> Prepare model..
+==> Start training..
+Epoch: [0][50/98]	Time 0.345 (0.409)	Data 0.218 (0.222)	Loss 0.0031 (0.0038)	Prec@1 41.406 (30.230)	Prec@5 89.062 (80.863)
+Epoch 0 : Loss 0.0034 Prec@1 37.880 Prec@5 86.338
+Loss 0.0027 Prec@1 52.040 Prec@5 94.220
+Collecting data...
+Generating '/tmp/nsys-report-aea6.qdstrm'
+[1/1] [0%                          ] gpu_2.nsys-rep[1/1] [0%                          ] gpu_2.nsys-rep[1/1] [5%                          ] gpu_2.nsys-rep[1/1] [8%                          ] gpu_2.nsys-rep[1/1] [11%                         ] gpu_2.nsys-rep[1/1] [14%                         ] gpu_2.nsys-rep[1/1] [=17%                        ] gpu_2.nsys-rep[1/1] [==20%                       ] gpu_2.nsys-rep[1/1] [===23%                      ] gpu_2.nsys-rep[1/1] [====26%                     ] gpu_2.nsys-rep[1/1] [=====29%                    ] gpu_2.nsys-rep[1/1] [=====32%                    ] gpu_2.nsys-rep[1/1] [======35%                   ] gpu_2.nsys-rep[1/1] [=======38%                  ] gpu_2.nsys-rep[1/1] [========41%                 ] gpu_2.nsys-rep[1/1] [=========44%                ] gpu_2.nsys-rep[1/1] [==========47%               ] gpu_2.nsys-rep[1/1] [===========50%              ] gpu_2.nsys-rep[1/1] [===========53%              ] gpu_2.nsys-rep[1/1] [============56%             ] gpu_2.nsys-rep[1/1] [=============59%            ] gpu_2.nsys-rep[1/1] [==============62%           ] gpu_2.nsys-rep[1/1] [===============65%          ] gpu_2.nsys-rep[1/1] [================68%         ] gpu_2.nsys-rep[1/1] [================71%         ] gpu_2.nsys-rep[1/1] [=================72%        ] gpu_2.nsys-rep[1/1] [=================73%        ] gpu_2.nsys-rep[1/1] [========================100%] gpu_2.nsys-rep[1/1] [========================100%] gpu_2.nsys-rep
+Generated:
+	/HOME/nsight_logs/dp_20251001_112217/gpu_2.nsys-rep
+[System] train ended
+gungun625_CSED490F_DDP_DALI_Training_container
+gungun625_CSED490F_DDP_DALI_Training_container
+Wed Oct  1 20:24:23 KST 2025
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+             36015   titanxp CSED490F gungun62  R       2:11      1 n6
+##### END #####
+[System] change permission in docker container created files
+Error response from daemon: No such container: gungun625_CSED490F_DDP_DALI_Training_container
+Error response from daemon: No such container: gungun625_CSED490F_DDP_DALI_Training_container
+[System] docker container stopped
+Error response from daemon: No such container: gungun625_CSED490F_DDP_DALI_Training_container
+[System] docker container removed
