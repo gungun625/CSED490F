@@ -122,12 +122,12 @@ class CifarPipeline(Pipeline):
         images = fn.decoders.image(images, device="mixed", output_type=types.RGB)
 
         if self.is_train:
-            # Random crop
+            # 1. Padding
             images = fn.random_resized_crop(images, size=(32, 32))
-            # Horizontal flip
+            # 2. Horizontal Flip
             images = fn.flip(images, horizontal=1) * fn.random.coin_flip(probability=0.5) + \
                      images * fn.random.coin_flip(probability=0.5)
-            # Normalize
+            # 3. Crop, Mirror, Normalize
             images = fn.crop_mirror_normalize(
                 images,
                 dtype=types.FLOAT,
@@ -135,7 +135,7 @@ class CifarPipeline(Pipeline):
                 mean=[0.4913999, 0.48215866, 0.44653133],
                 output_layout="CHW"
             )
-            # Cutout
+            # 4. Cutout
             if self.cutout_length > 0:
                 images = fn.erase(images,
                                   anchor=[0.5, 0.5],
@@ -143,7 +143,7 @@ class CifarPipeline(Pipeline):
                                          self.cutout_length/self.cutout_length],
                                   axes=(1, 2))
         else:
-            # just normalize
+            # 1. Crop, Normalize
             images = fn.crop_mirror_normalize(
                 images,
                 dtype=types.FLOAT,
@@ -192,22 +192,16 @@ def get_DALI_loader(test_batch, train_batch, root=base_dir, valid_size=0, valid_
     We give you the DALIWrapper class, which is a wrapper of DALIGenericIterator, to maintain the same interface with the original loader.
     '''
 
-    # 분산 학습 여부 확인
-    if dist.is_available() and dist.is_initialized():
-        world_size = dist.get_world_size()
-        rank = dist.get_rank()
-    else:
-        world_size = 1
-        rank = 0
+  
+    world_size = dist.get_world_size()
+    rank = dist.get_rank()
 
-    # 데이터셋 디렉토리
     train_dir = os.path.join(root, "train")
     valid_dir = os.path.join(root, "valid")
     test_dir  = os.path.join(root, "test")
 
     train_loader, valid_loader, test_loader = None, None, None
 
-    # Train Loader
     if train_batch > 0:
         pipe = CifarPipeline(train_dir, train_batch, True, cutout,
                              device_id=rank, shard_id=rank, num_shards=world_size,
@@ -216,7 +210,6 @@ def get_DALI_loader(test_batch, train_batch, root=base_dir, valid_size=0, valid_
         dali_iter = DALIGenericIterator([pipe], ["data", "label"], reader_name="Reader")
         train_loader = DALIWrapper(dali_iter)
 
-    # Valid Loader
     if valid_size > 0:
         assert valid_batch > 0, "Validation batch size must be > 0"
         pipe = CifarPipeline(valid_dir, valid_batch, False, 0,
@@ -226,7 +219,6 @@ def get_DALI_loader(test_batch, train_batch, root=base_dir, valid_size=0, valid_
         dali_iter = DALIGenericIterator([pipe], ["data", "label"], reader_name="Reader")
         valid_loader = DALIWrapper(dali_iter)
 
-    # Test Loader
     if test_batch > 0:
         pipe = CifarPipeline(test_dir, test_batch, False, 0,
                              device_id=rank, shard_id=rank, num_shards=world_size,
